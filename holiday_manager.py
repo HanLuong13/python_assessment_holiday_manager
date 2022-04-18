@@ -218,13 +218,16 @@ class Holiday_List:
         # Look for weather description in weather list to match up with week's holiday
         # Print out holidays along with weather description
         
-        print('\nThese are the holidays upcoming days in this week with weather.')
+        print('\nThese are the holidays in this week with weather for upcoming days.')
         for holiday_record in self.inner_holidays:
+            holiday = str(holiday_record)
             for weather_record in weather_list:
                 if weather_record['weather_date'] == holiday_record['date']:
-                    description = weather_record['description']
-                    print(f'{holiday_record} - {description}') 
+                    description = str(weather_record['description'])
+                    holiday = holiday + ' - ' + description
+            print(holiday)
 
+            
     def create_filtered_holiday_list(self, filtered_holiday_list, year_input, week_input):
         #create holiday objects to add to holiday list object
         #prepare to display holidays in year and week
